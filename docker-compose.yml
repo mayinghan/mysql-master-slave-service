@@ -1,0 +1,28 @@
+version: '2'
+services:
+  mysql-master:
+    volumes: 
+      - ~/Databse/mysql/data-master:/var/lib/mysql
+    build:
+      context: ./
+      dockerfile: master/Dockerfile
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123456"
+    ports:
+      - "13306:3306"
+    links:
+      - mysql-slave
+    restart: always
+    hostname: mysql-master
+  mysql-slave:
+    volumes: 
+      - ~/Databse/mysql/data-slave:/var/lib/mysql
+    build:
+      context: ./
+      dockerfile: slave/Dockerfile
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123456"
+    ports:
+      - "13307:3306"
+    restart: always
+    hostname: mysql-slave
