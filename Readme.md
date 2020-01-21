@@ -13,7 +13,7 @@ Create local DB directories. They will mount to the DBs in the docker.
 
 ```mkdir -p ~/Databse/mysql/data-master```
 
-(On Windows or you want your own directory, make sure also change the ```volumes``` choice in docker-compose.yml for both [mysql-master](https://github.com/mayinghan/GoDrive-server/blob/2ff57dc18e537821c906cdff31e06147501f22e8/dbsetup/docker-compose.yml#L5) and [mysql-slave](https://github.com/mayinghan/GoDrive-server/blob/2ff57dc18e537821c906cdff31e06147501f22e8/dbsetup/docker-compose.yml#L19)
+(On Windows or you want your own directory, make sure also change the ```volumes``` choice in docker-compose.yml for both [mysql-master](https://github.com/mayinghan/mysql-master-slave-service/blob/cac8d658c878b4473c5367d2681711fa124d79fc/docker-compose.yml#L5) and [mysql-slave](https://github.com/mayinghan/mysql-master-slave-service/blob/cac8d658c878b4473c5367d2681711fa124d79fc/docker-compose.yml#L19)
 
 
 ## Step 1
@@ -32,7 +32,7 @@ The default password for both db's root is ```123456```.
 Enter mysql-master:
 
 ```
-mysql -u root -h 127.0.0.1 -P 13306 -p 123456
+mysql -u root -h 127.0.0.1 -P 13306 -p
 ```
 
 Then run
@@ -55,7 +55,7 @@ You should see something like this:
 ## Step 3
 Enter mysql-slave:
 ```
-mysql -u root -h 127.0.0.1 -P 13307 -p 123456
+mysql -u root -h 127.0.0.1 -P 13307 -p
 ```
 
 Then run
@@ -71,6 +71,12 @@ you should see these two terms in the table:
 Slave_IO_Running: Yes 
 Slave_SQL_Running: Yes 
 ```
+## Step 4
+Go to mysql-master and create database ```fileserver```
+```sql
+create database fileserver default character set utf8;;
+```
+
 
 -----------------------
 * Author: Yinghan Ma (mayinghan97@gmail.com)
