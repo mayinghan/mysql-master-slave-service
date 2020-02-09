@@ -32,8 +32,9 @@ The default password for both db's root is ```123456```.
 Enter mysql-master:
 
 ```
-mysql -u root -h 127.0.0.1 -P 13306 -p
+mysql -u root -h 127.0.0.1 -P 13306 -p 
 ```
+(then input the password 123456)
 
 Then run
 ```
@@ -57,6 +58,7 @@ Enter mysql-slave:
 ```
 mysql -u root -h 127.0.0.1 -P 13307 -p
 ```
+(then input the password 123456)
 
 Then run
 ```
