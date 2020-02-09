@@ -5,8 +5,8 @@ This directory contains instruction of how to use docker to set MySQL master-sla
 make sure
 1. you have MySQL or MariaDB on your machine
 2. you have [Docker and Docker-compose](https://www.docker.com/products/docker-desktop) on your machine
-3. you are in directory ./dbsetup/
-```cd dbsetup```
+3. you are in the current directory `./msql-master-slave-service`
+```cd msql-master-slave-service```
 
 ## Step 0
 Create local DB directories. They will mount to the DBs in the docker.
